@@ -23,7 +23,14 @@ sudo service codedeploy-agent restart
 EOL
 sudo chmod +x /etc/init.d/codedeploy-start.sh
 
-# docker 설치
+set -euf pipefail
+
+# Download and install
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.1.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+# docker 설정
 sudo usermod -aG docker ubuntu
 sudo systemctl enable docker
 sudo systemctl start docker
+
