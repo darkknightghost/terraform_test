@@ -1,9 +1,15 @@
 #!/bin/bash
 
 sudo apt update -y
-sudo apt install -y docker.io openjdk-17-jdk git ruby wget unzip
+sudo apt install -y docker.io openjdk-17-jdk git ruby wget unzip 
 
 cd /home/ubuntu
+
+# aws cli 설치
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install zip unzip -y
+unzip awscliv2.zip
+./aws/install
 
 # JAVA_HOME 설정
 echo 'export JAVA_HOME="/usr/lib/jvm/java-1.17.0-openjdk-amd64"' >> ./.bashrc
