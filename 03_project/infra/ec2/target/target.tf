@@ -7,7 +7,7 @@ resource "aws_instance" "target" {
   subnet_id = data.terraform_remote_state.vpc.outputs.public-subnet-2a-id 
   security_groups             = [data.terraform_remote_state.security_group.outputs.ssh_id]
   
-    user_data = templatefile("${path.module}/templates/userdata.sh", {})
+  user_data = templatefile("templates/userdata.sh", {})
 
   tags = {
     Name = "aws00-target"
